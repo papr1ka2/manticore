@@ -7,7 +7,10 @@ LABEL dockerfile_maintenance=trailofbits
 
 ENV LANG C.UTF-8
 
-RUN apt-get -y update && DEBIAN_FRONTEND=noninteractive apt-get -y install python3 python3-dev python3-pip git wget
+RUN apt-get -y update && DEBIAN_FRONTEND=noninteractive apt-get -y install python3 python3-dev python3-pip git wget software-properties-common
+RUN add-apt-repository ppa:sri-csl/formal-methods -y
+RUN apt-get update
+RUN apt-get install yices2 -y
 
 # Install solc 0.4.25 and validate it
 RUN wget https://github.com/ethereum/solidity/releases/download/v0.4.25/solc-static-linux \
