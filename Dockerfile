@@ -23,7 +23,6 @@ RUN [ "c9b268750506b88fe71371100050e9dd1e7edcf8f69da34d1cd09557ecb24580  /usr/bi
 RUN python3 -m pip install -U pip
 
 ADD . /manticore
-RUN cd manticore
-RUN pip install -e ".[dev-noks]"
+RUN cd manticore && pip install -e ".[dev-noks]"
 
 CMD ["/bin/bash"]
